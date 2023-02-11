@@ -1,17 +1,13 @@
 import React from 'react'
-import UserResults from '../components/users/UserResults'
 
 function Home() {
-    // in this component we have our search module
-    return (
-        <>
-            {/* Search componenet will come here */}
-            <UserResults />
-        </ >
-
-
-
-    )
+  return (
+    <div>
+        <h1 className="text-6xl">
+            Welcome
+        </h1>
+    </div>
+  )
 }
 
 export default Home
