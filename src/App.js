@@ -1,10 +1,10 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import Footer from './components/layout/Footer'
+import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
 import About from './pages/About'
-import NotFound from './pages/NotFound'
-import Navbar from './components/layouts/Navbar'
-import Footer from './components/layouts/Footer'
+import Notfound from './pages/Notfound'
 function App() {
   return (
     <>
@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
-            <Route path='/*' element={<NotFound />} />
+            <Route path='*' element={<Notfound />} />
           </Routes>
         </main>
         <Footer />
