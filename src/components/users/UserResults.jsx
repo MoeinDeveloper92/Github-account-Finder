@@ -1,31 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { motion } from 'framer-motion'
 import Spinner from '../layout/Spinner'
 import UserItem from './UserItem'
+import GithubContext from '../../context/github/GithubContext'
+
 
 function UserResults() {
-    const [users, setUsers] = useState([])
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        fetchUsers()
-    }, [])
+    const { users, loading } = useContext(GithubContext)
 
 
 
-    const fetchUsers = async () => {
-        const response = await fetch(`${process.env.REACT_APP_GITHUB_URL}/users`, {
-            headers: {
-                Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`
-            }
-        })
-        const data = await response.json();
-        setUsers(data)
-        setLoading(false)
-    }
-
-
-    
 
     if (!loading) {
         return (
@@ -33,7 +17,7 @@ function UserResults() {
                 {users.map((user) => (
                     <motion.h3 key={user.id}
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, animationDelay: .5, type: 'spring' }}
+                        animate={{ opacity: 1 }}
                     >
                         <UserItem key={user.id} user={user} />
                     </motion.h3>
